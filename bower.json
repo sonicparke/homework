@@ -1,0 +1,26 @@
+{
+  "name": "ngStart",
+  "version": "0.3.0",
+  "description": "Angular Starter Project",
+  "authors": [
+    "Brad McAlister"
+  ],
+  "license": "MIT",
+  "homepage": "http://mydomain.com",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components"
+  ],
+  "dependencies": {
+    "angular": "",
+    "angular-ui-router": "",
+    "restangular": "",
+    "font-awesome": "",
+    "angular-toastr": "",
+    "ngstorage": "",
+    "angular-animate": "",
+    "angular-sanitize": "",
+    "angular-messages": ""
+  }
+}

@@ -1,0 +1,59 @@
+{
+  "name": "ngStart",
+  "version": "0.3.0",
+  "description": "Angular Starter Project",
+  "authors": [
+    "Brad McAlister"
+  ],
+  "license": "MIT",
+  "homepage": "http://mydomain.com",
+  "scripts": {
+    "init": "npm install",
+    "install": "bower install",
+    "start": "node src/server/app.js"
+  },
+  "dependencies": {
+    "body-parser": "",
+    "compression": "",
+    "cors": "",
+    "express": "",
+    "morgan": "",
+    "serve-favicon": ""
+  },
+  "devDependencies": {
+    "bardjs": "",
+    "browser-sync": "",
+    "del": "",
+    "gulp": "",
+    "gulp-angular-templatecache": "",
+    "gulp-autoprefixer": "",
+    "gulp-bump": "",
+    "gulp-csso": "",
+    "gulp-filter": "",
+    "gulp-if": "",
+    "gulp-imagemin": "",
+    "gulp-inject": "",
+    "gulp-jasmine": "",
+    "gulp-jscs": "",
+    "gulp-jshint": "",
+    "gulp-less": "",
+    "gulp-load-plugins": "",
+    "gulp-minify-html": "",
+    "gulp-ng-annotate": "",
+    "gulp-nodemon": "",
+    "gulp-print": "",
+    "gulp-rev": "",
+    "gulp-rev-replace": "",
+    "gulp-task-listing": "",
+    "gulp-uglify": "",
+    "gulp-useref": "",
+    "gulp-util": "",
+    "jasmine-core": "^2.4.1",
+    "jshint-stylish": "",
+    "karma": "^0.13.18",
+    "phantomjs": "^1.9.19",
+    "sinon": "^1.17.2",
+    "wiredep": "",
+    "yargs": ""
+  }
+}
