@@ -50,7 +50,7 @@
     "gulp-util": "",
     "jasmine-core": "^2.4.1",
     "jshint-stylish": "",
-    "karma": "^0.13.18",
+    "karma": "^0.13.19",
     "phantomjs": "^1.9.19",
     "sinon": "^1.17.2",
     "wiredep": "",

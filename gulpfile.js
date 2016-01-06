@@ -198,31 +198,28 @@
     gulp.task('optimize', ['inject', 'fonts', 'images'], function() {
         log('Optimizing the javascript, css, html');
 
-        var assets = $.useref.assets({searchPath: './'});
         var templateCache = config.temp + config.templateCache.file;
-        var cssFilter = $.filter('**/*.css');
-        var jsLibFilter = $.filter('**/' + config.optimized.lib);
-        var jsAppFilter = $.filter('**/' + config.optimized.app);
+        var cssFilter = $.filter('**/*.css', {restore: true});
+        var jsLibFilter = $.filter('**/' + config.optimized.lib, {restore: true});
+        var jsAppFilter = $.filter('**/' + config.optimized.app, {restore: true});
 
         return gulp
             .src(config.index)
             .pipe($.inject(gulp.src(templateCache, {read: false}), {
                 starttag: '<!-- inject:templates:js -->' // injects templates.js into index.html at this tag location
             }))
-            .pipe(assets) // Gets the build assets marked with <!-- build:xxx --> tags
             .pipe(cssFilter) // Go get CSS
             .pipe($.csso()) // Minify/optimize CSS
-            .pipe(cssFilter.restore()) // Restore CSS
+            .pipe(cssFilter.restore) // Restore CSS
             .pipe(jsLibFilter)// Go get Vendor JS
             .pipe($.uglify()) // Minify Vendor JS
-            .pipe(jsLibFilter.restore())// Restore Vendor JS
+            .pipe(jsLibFilter.restore)// Restore Vendor JS
             .pipe(jsAppFilter)// Go get App JS
             .pipe($.ngAnnotate()) // Fixes angular DI issues with minifying
             .pipe($.uglify()) // Minify App JS
-            .pipe(jsAppFilter.restore())// Restore App JS
+            .pipe(jsAppFilter.restore)// Restore App JS
             .pipe($.rev())// Renames file from app.js --> app-k3huy7.js or similar
-            .pipe(assets.restore()) // Restores the build assets
-            .pipe($.useref()) // This line replaces all references & comment tags
+            .pipe($.useref({searchPath: './'})) // This line replaces all references & comment tags
             .pipe($.revReplace())// Point script refs in index.html to newly rev'd file
             .pipe(gulp.dest(config.build)) // Write files to build folder
             .pipe($.rev.manifest()) // Create a manifest file to show rev from & to filenames
