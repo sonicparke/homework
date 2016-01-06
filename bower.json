@@ -1,7 +1,7 @@
 {
-  "name": "ngStart",
+  "name": "Homework",
   "version": "0.3.0",
-  "description": "Angular Starter Project",
+  "description": "Homework assignment tracking app for my kids",
   "authors": [
     "Brad McAlister"
   ],
@@ -21,6 +21,7 @@
     "ngstorage": "",
     "angular-animate": "",
     "angular-sanitize": "",
-    "angular-messages": ""
+    "angular-messages": "",
+    "angularfire": "~1.1.3"
   }
 }

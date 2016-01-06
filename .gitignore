@@ -1,2 +1,8 @@
-bower_components/
 node_modules/
+vendor/
+bower_components/
+vendor/
+.vscode/
+coverage/
+.tmp/
+

@@ -7,34 +7,30 @@
         'app.core',
 
         /* Feature areas */
-        'app.login',
         'app.layout',
-        'app.feature'
+        'app.assignments'
     ]).config(config);
 
 
     // TODO: Figure out how to move routes to feature folders. Keep getting $stateProvider injection error
-    config.$inject = ['$stateProvider', '$httpProvider', '$tooltipProvider', '$urlRouterProvider'];
+    config.$inject = ['$stateProvider', '$httpProvider', '$urlRouterProvider'];
     /* @ngInject */
-    function config($stateProvider, $httpProvider, $tooltipProvider, $urlRouterProvider) {
+    function config($stateProvider, $httpProvider, $urlRouterProvider) {
 
 
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
-        $httpProvider.interceptors.push('AuthInterceptor');
-
-
+        // $httpProvider.interceptors.push('AuthInterceptor');
 
         $stateProvider
-            .state('feature', {
-                url: '/feature',
-                templateUrl: 'app/feature/feature.html',
-                controller: 'feature',
-                controllerAs: 'vm'
+            .state('assignments', {
+                url: '/assignments',
+                templateUrl: 'app/assignments/assignments.html',
+                controller: 'Assignments',
+                controllerAs: 'ass'
             });
 
 
-        $urlRouterProvider.otherwise('/');
-        $tooltipProvider.options({appendToBody: true});
+        $urlRouterProvider.otherwise('assignments');
     }
 
 })();

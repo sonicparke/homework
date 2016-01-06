@@ -5,8 +5,6 @@ module.exports = function() {
     var server = './src/server/';
     var temp = './.tmp/';
 
-    var deploy = '//axcuscatwsweb01/c$/inetpub/wwwroot/launchpad';
-
     var config = {
 
 
@@ -24,7 +22,6 @@ module.exports = function() {
             clientApp + '**/*.css'
         ],
         cssLess: temp + 'styles.css',
-        deploy: deploy,
         fonts: [
             './bower_components/font-awesome/fonts/**/*.*',
             './bower_components/webfont-opensans/fonts/**/*.*'

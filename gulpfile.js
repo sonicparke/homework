@@ -41,7 +41,7 @@
     //
     //    return gulp
     //        .src(config.less)
-    //        .pipe($.plumber()) // Catch any errors
+    //         // Catch any errors
     //        .pipe($.less())
     //        .pipe($.autoprefixer({browsers: ['last 2 version', '> 5%']}))
     //        .pipe(gulp.dest(config.temp));
@@ -145,7 +145,6 @@
         log('Creating AngularJS $templateCache');
         return gulp
             .src(config.htmltemplates)
-            .pipe($.plumber()) // Catch any errors
             .pipe($.minifyHtml({empty:true}))// minify the html and leave any empty elements intact
             .pipe($.angularTemplatecache(
                 config.templateCache.file,
@@ -207,7 +206,6 @@
 
         return gulp
             .src(config.index)
-            .pipe($.plumber())
             .pipe($.inject(gulp.src(templateCache, {read: false}), {
                 starttag: '<!-- inject:templates:js -->' // injects templates.js into index.html at this tag location
             }))
@@ -231,33 +229,6 @@
             .pipe(gulp.dest(config.build)); // Write out rev manifest file to build folder
     });
 
-
-    ////////////////////
-    //
-    // Deploy to Web Server
-    // --type=dev
-    // --type=test
-    // --type=prod
-    //
-    ////////////////////
-    gulp.task('deploy', function() {
-        var msg = 'Deploying ';
-        var type = args.type;
-        var deployPath = config.deploy + type;
-        var options = {};
-        options.type = type;
-        msg += ' to ' + config.deploy + type;
-        type = type.toLowerCase();
-        if (type === 'prod') {
-            deployPath = config.deploy;
-
-        }
-        log(msg);
-        return gulp
-            .src(config.build + '/**/*')
-            .pipe($.print())
-            .pipe(gulp.dest(deployPath));
-    });
 
     ////////////////////
     //
@@ -308,11 +279,6 @@
     gulp.task('serve-dev', ['vet', 'inject'], function() {
         serve(true /* isDev */);
     });
-
-
-
-
-
 
 
     ////////////////////////////////////////////////////////////
@@ -464,7 +430,9 @@
     ////////////////////
     function clean(path, done) {
         log('Cleaning: ' + $.util.colors.blue(path));
-        del(path, done);
+        del(path).then(function() {
+          done();
+        });
     }
 
     ////////////////////

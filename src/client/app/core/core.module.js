@@ -11,6 +11,7 @@
             'app.uibutton',
 
             /* 3rd-party modules */
+            'firebase',
             'ui.router',
             'restangular',
             'ngStorage',

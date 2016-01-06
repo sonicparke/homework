@@ -1,0 +1,26 @@
+<div ng-init="ass.InitPage()">
+  <h1>Assignments</h1>
+    <sign-out class="pull-right btn-inverse"></sign-out>
+    <section class="menu container">
+        <div ng-loader ng-show="ass.showLoader"></div>
+        <nav class="row">
+          <!--<pre>{{ ass.assignments | json }}</pre>-->
+            <ul class="list-unstyled">
+                <li class="col-md-4 col-sm-12" ng-repeat="assignment in ass.assignments">
+                    <a class="btn btn-block btn-inverse clearfix" href="{{assignment.Url}}" target="_blank">
+                        <div class="menuText">
+                            {{assignment.from}} <br/>
+                            <small>{{assignment.body}}</small>
+                        </div>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </section>
+    <section>
+      
+    </section>
+
+</div>
+
+
