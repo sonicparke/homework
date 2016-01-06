@@ -6,5 +6,6 @@ Forked from [John Papa's pluralsight-gulp](https://github.com/johnpapa/pluralsig
 ## Get Going
 ```bash
 $ npm install
+$ gulp serve-dev
 ```
 
