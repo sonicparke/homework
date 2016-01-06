@@ -19,7 +19,6 @@
 
 
         delete $httpProvider.defaults.headers.common['X-Requested-With'];
-        // $httpProvider.interceptors.push('AuthInterceptor');
 
         $stateProvider
             .state('assignments', {
@@ -38,8 +37,7 @@
 (function() {
     'use strict';
 
-    angular.module('app.assignments', []);
-
+    angular.module('app.layout', []);
 })();
 
 (function() {
@@ -67,7 +65,8 @@
 (function() {
     'use strict';
 
-    angular.module('app.layout', []);
+    angular.module('app.assignments', []);
+
 })();
 
 (function() {
@@ -75,6 +74,33 @@
 
     angular.module('app.uibutton', []);
 
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.core')
+        .controller('Main', Main);
+
+    Main.$inject = ['appConfig'];
+    /* @ngInject */
+    function Main (appConfig) {
+
+        var vm = this;
+        vm.appConfig = appConfig;
+
+    }
+})();
+
+(function() {
+    'use strict';
+
+    angular.module('app.core')
+        .constant('appConfig', {
+            'appname': 'ngStart',
+            'title': 'Angular Starter',
+            'version': '0.3.0'
+        });
 })();
 
 /* global Firebase, angular */
@@ -105,33 +131,6 @@
           //  vm.assignments.$add({ from: 'brad', body: 'message i sent' });
 
         }
-    }
-})();
-
-(function() {
-    'use strict';
-
-    angular.module('app.core')
-        .constant('appConfig', {
-            'appname': 'ngStart',
-            'title': 'Angular Starter',
-            'version': '0.3.0'
-        });
-})();
-
-(function() {
-    'use strict';
-
-    angular.module('app.core')
-        .controller('Main', Main);
-
-    Main.$inject = ['appConfig'];
-    /* @ngInject */
-    function Main (appConfig) {
-
-        var vm = this;
-        vm.appConfig = appConfig;
-
     }
 })();
 
